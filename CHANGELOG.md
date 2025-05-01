@@ -1,6 +1,14 @@
 # CHANGELOG
 
 
+## v0.1.1 (2025-05-01)
+
+### Bug Fixes
+
+- Release.yml
+  ([`6a51a9d`](https://github.com/m-xim/textcompose/commit/6a51a9d68cf05e38576de6c29b3244a33fe21a9d))
+
+
 ## v0.1.0 (2025-05-01)
 
 ### Bug Fixes
