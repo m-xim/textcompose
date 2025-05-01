@@ -1,6 +1,14 @@
 # CHANGELOG
 
 
+## v0.1.2 (2025-05-01)
+
+### Bug Fixes
+
+- Bump version for re-upload
+  ([`10e3415`](https://github.com/m-xim/textcompose/commit/10e34150ca94eec75af46fe3bbda121a4b97b802))
+
+
 ## v0.1.1 (2025-05-01)
 
 ### Bug Fixes
