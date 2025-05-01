@@ -1,4 +1,4 @@
-name: CI/CD Release & Publish
+name: Release & Publish
 
 on:
   push:
