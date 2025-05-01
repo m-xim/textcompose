@@ -1,0 +1,35 @@
+[project]
+name = "textcompose"
+description = ""
+version = "0.1.0"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "magic-filter>=1.0.12",
+]
+
+[dependency-groups]
+dev = [
+  "ruff",
+  "pytest",
+]
+
+[tool.ruff]
+line-length = 120
+
+[tool.ruff.lint]
+ignore = ["COM812"]
+
+[tool.semantic_release]
+version_source = "pyproject"
+commit_message = "chore(release): {version}"
+version_toml = [
+    "pyproject.toml:project.version",
+]
+
+[tool.semantic_release.branches.main]
+match = "main"
+
+[tool.semantic_release.branches.dev]
+match = "dev"
+prerelease = true
