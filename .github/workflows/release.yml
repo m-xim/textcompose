@@ -10,17 +10,21 @@ jobs:
   release:
     runs-on: ubuntu-latest
     concurrency:
-      group: 'semantic-release'
-      cancel-in-progress: true
+      group: ${{ github.workflow }}-release-${{ github.ref_name }}
+      cancel-in-progress: false
+
+    permissions:
+      id-token: write
+      contents: write
 
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
         with:
+          ref: ${{ github.ref_name }}
           fetch-depth: 0
-          ref: ${{ github.sha }}
 
-      - name: Semantic Version Release
+      - name: Action | Semantic Version Release
         id: release
         uses: python-semantic-release/python-semantic-release@v9.21.0
         with:
@@ -28,8 +32,9 @@ jobs:
           git_committer_name: "github-actions"
           git_committer_email: "actions@users.noreply.github.com"
 
-      - name: Upload to GitHub Release Assets
+      - name: Publish | Upload to GitHub Release Assets
         uses: python-semantic-release/publish-action@v9.21.0
+        if: steps.release.outputs.released == 'true'
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           tag: ${{ steps.release.outputs.tag }}
@@ -41,9 +46,11 @@ jobs:
         run: uv sync --locked --all-extras
 
       - name: Build package
+        if: steps.release.outputs.released == 'true'
         run: uv build --no-sources
 
       - name: Publish to PyPI
         env:
           UV_PUBLISH_TOKEN: ${{ secrets.PYPI_TOKEN }}
+        if: steps.release.outputs.released == 'true'
         run: uv publish
