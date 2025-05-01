@@ -41,16 +41,18 @@ jobs:
 
       - name: Setup uv & venv
         uses: astral-sh/setup-uv@v5
+        if: steps.release.outputs.released == 'true'
 
       - name: Install dependencies
         run: uv sync --locked --all-extras
+        if: steps.release.outputs.released == 'true'
 
       - name: Build package
-        if: steps.release.outputs.released == 'true'
         run: uv build --no-sources
+        if: steps.release.outputs.released == 'true'
 
       - name: Publish to PyPI
         env:
           UV_PUBLISH_TOKEN: ${{ secrets.PYPI_TOKEN }}
-        if: steps.release.outputs.released == 'true'
         run: uv publish
+        if: steps.release.outputs.released == 'true'
