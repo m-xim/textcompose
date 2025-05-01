@@ -1,6 +1,5 @@
-from threading import Condition
 from typing import Dict, Any
-from textcompose.content.content import BaseContent
+from textcompose.content.content import BaseContent, Condition
 
 
 class Text(BaseContent):
