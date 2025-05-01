@@ -1,20 +1,18 @@
 # CHANGELOG
 
 
-## v0.1.2 (2025-05-01)
+## v0.1.1 (2025-05-01)
 
 ### Bug Fixes
+
+- Lock
+  ([`1811f28`](https://github.com/m-xim/textcompose/commit/1811f28b954106735e1e28d513378a426fb11c15))
 
 - Lock
   ([`6d4b44c`](https://github.com/m-xim/textcompose/commit/6d4b44c8719a45f52834391777d5b98af452a36f))
 
 - Lock
   ([`fbdcd6c`](https://github.com/m-xim/textcompose/commit/fbdcd6caf211c7a6a33ac6acc4a08a2e8bcdeb8f))
-
-
-## v0.1.1 (2025-05-01)
-
-### Bug Fixes
 
 - Release.yml
   ([`6a51a9d`](https://github.com/m-xim/textcompose/commit/6a51a9d68cf05e38576de6c29b3244a33fe21a9d))
