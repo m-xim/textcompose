@@ -1,6 +1,25 @@
 # CHANGELOG
 
 
+## v0.2.0 (2025-05-02)
+
+### Chores
+
+- **release**: Fix
+  ([`365ad02`](https://github.com/m-xim/textcompose/commit/365ad025db2b580e16941d207491a18560034573))
+
+- **release**: Migrate to single-branch workflow and manual release process
+  ([`add9991`](https://github.com/m-xim/textcompose/commit/add9991277ceaa84afc324cace9d894b50a308c2))
+
+### Features
+
+- Custom arg in render
+  ([`94fc405`](https://github.com/m-xim/textcompose/commit/94fc405c44f3aafa34a55dabf7d56374ee1ab45f))
+
+
+## v0.1.4 (2025-05-02)
+
+
 ## v0.1.4-rc.1 (2025-05-02)
 
 ### Chores
