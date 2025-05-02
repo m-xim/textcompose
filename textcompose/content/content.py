@@ -9,17 +9,17 @@ class BaseContent(ABC):
     def __init__(self, when: Condition | None = None) -> None:
         self.when = when
 
-    def _check_when(self, context: dict[str, Any]) -> bool:
+    def _check_when(self, context: dict[str, Any], **kwargs) -> bool:
         if self.when is None:
             return True
         if isinstance(self.when, MagicFilter):
             return bool(self.when.resolve(context))
         if isinstance(self.when, BaseContent):
-            text = self.when.render(context)
+            text = self.when.render(context, **kwargs)
             return bool(text.strip())
         if callable(self.when):
             return bool(self.when(context))
         return bool(self.when)
 
     @abstractmethod
-    def render(self, context: dict[str, Any]) -> str | None: ...
+    def render(self, context: dict[str, Any], **kwargs) -> str | None: ...

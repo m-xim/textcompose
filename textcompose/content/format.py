@@ -8,7 +8,7 @@ class Format(BaseContent):
         super().__init__(when=when)
         self.template = template
 
-    def render(self, context: dict[str, Any]) -> str | None:
-        if not self._check_when(context):
+    def render(self, context: dict[str, Any], **kwargs) -> str | None:
+        if not self._check_when(context, **kwargs):
             return None
         return self.template.format_map(context)
