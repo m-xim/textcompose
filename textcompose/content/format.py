@@ -5,7 +5,7 @@ from textcompose.content.content import BaseContent, Condition
 
 class Format(BaseContent):
     def __init__(self, template: str, when: Condition | None = None) -> None:
-        super().__init__(when)
+        super().__init__(when=when)
         self.template = template
 
     def render(self, context: dict[str, Any]) -> str | None:

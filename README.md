@@ -51,17 +51,13 @@ from textcompose.content import Format, Text
 # Create a template using nested components
 template = Template(
     Group(
-        [
-            Format("Hello, {name}!"),
-            Format("Your status: {status}."),
-            Group(
-                [
-                    Text("You have new notifications."),
-                    Format("Notification count: {notifications}.", when=lambda ctx: ctx.get("notifications") > 0)
-                ],
-                sep=" "  # Separator for the nested group
-            )
-        ],
+        Format("Hello, {name}!"),
+        Format("Your status: {status}."),
+        Group(
+            Text("You have new notifications."),
+            Format("Notification count: {notifications}.", when=lambda ctx: ctx.get("notifications") > 0),
+            sep=" "  # Separator for the nested group
+        ),
         sep="\n"  # Separator for the main group
     )
 )
