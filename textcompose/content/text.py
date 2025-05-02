@@ -7,7 +7,7 @@ class Text(BaseContent):
         super().__init__(when=when)
         self.text = text
 
-    def render(self, context: Dict[str, Any]) -> str | None:
-        if not self._check_when(context):
+    def render(self, context: Dict[str, Any], **kwargs) -> str | None:
+        if not self._check_when(context, **kwargs):
             return None
         return self.text
