@@ -1,6 +1,14 @@
 # CHANGELOG
 
 
+## v0.1.3 (2025-05-02)
+
+### Testing
+
+- Add tests
+  ([`fa30176`](https://github.com/m-xim/textcompose/commit/fa301760d5734d249c5c7c59a7f9f954de6bf0c4))
+
+
 ## v0.1.3-rc.1 (2025-05-01)
 
 ### Bug Fixes
