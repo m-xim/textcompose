@@ -4,7 +4,7 @@ from textcompose.content.content import BaseContent, Condition
 
 class Text(BaseContent):
     def __init__(self, text: str, when: Condition | None = None):
-        super().__init__(when)
+        super().__init__(when=when)
         self.text = text
 
     def render(self, context: Dict[str, Any]) -> str | None:

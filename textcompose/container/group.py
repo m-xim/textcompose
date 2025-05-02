@@ -5,8 +5,8 @@ from textcompose.content.content import Condition, BaseContent
 
 
 class Group(BaseContainer):
-    def __init__(self, children: list[BaseContent], sep: Optional[str] = "\n", when: Condition | None = None) -> None:
-        super().__init__(children, when)
+    def __init__(self, *children: BaseContent, sep: Optional[str] = "\n", when: Condition | None = None) -> None:
+        super().__init__(*children, when=when)
 
         self.sep = sep
 
