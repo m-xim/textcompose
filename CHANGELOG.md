@@ -1,7 +1,12 @@
 # CHANGELOG
 
 
-## v0.1.4 (2025-05-02)
+## v0.1.4-rc.1 (2025-05-02)
+
+### Chores
+
+- **readme**: Fix pypi badge
+  ([`bd30d8d`](https://github.com/m-xim/textcompose/commit/bd30d8dee487d5f717cae2275a3687488dfb58b4))
 
 
 ## v0.1.3 (2025-05-02)
