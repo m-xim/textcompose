@@ -1,6 +1,6 @@
 # TextCompose
 
-[![PyPI version](https://badge.fury.io/py/textcompose.svg)](https://badge.fury.io/py/textcompose)
+[![PyPI version](https://img.shields.io/pypi/v/textcompose?color=blue)](https://pypi.org/project/textcompose)
 [![License](https://img.shields.io/github/license/m-xim/textcompose.svg)](/LICENSE)
 [![Tests Status](https://github.com/m-xim/textcompose/actions/workflows/tests.yml/badge.svg)](https://github.com/m-xim/textcompose/actions)
 [![Release Status](https://github.com/m-xim/textcompose/actions/workflows/release.yml/badge.svg)](https://github.com/m-xim/textcompose/actions)
