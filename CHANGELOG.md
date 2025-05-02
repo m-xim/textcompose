@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## v0.1.3 (2025-05-02)
+
+### Testing
+
+- Add tests
+  ([`fa30176`](https://github.com/m-xim/textcompose/commit/fa301760d5734d249c5c7c59a7f9f954de6bf0c4))
+
 
 ## v0.1.3-rc.2 (2025-05-02)
 
@@ -21,11 +28,6 @@
 
 - Fix uv sync
   ([`6152b99`](https://github.com/m-xim/textcompose/commit/6152b99f0155d902096af632a216aed8be8d7d7d))
-
-### Testing
-
-- Add tests
-  ([`fa30176`](https://github.com/m-xim/textcompose/commit/fa301760d5734d249c5c7c59a7f9f954de6bf0c4))
 
 
 ## v0.1.3-rc.1 (2025-05-01)
