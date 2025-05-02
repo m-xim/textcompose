@@ -1,11 +1,11 @@
-from typing import Any, Dict, Optional, Union
+from typing import Any, Dict
 
 from textcompose.container.container import BaseContainer
-from textcompose.content.content import BaseContent
+from textcompose.content.content import BaseContent, Condition
 
 
 class Template(BaseContainer):
-    def __init__(self, *components: BaseContent, when: Optional[Union[callable, BaseContent, Any]] = None):
+    def __init__(self, *components: BaseContent, when: Condition | None = None):
         super().__init__(when)
         self.components = components
 
