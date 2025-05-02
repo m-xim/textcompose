@@ -1,12 +1,40 @@
 [project]
 name = "textcompose"
-description = ""
-version = "0.1.3"
+description = "A Python library for building dynamic, structured text templates using a declarative, compose-based approach"
+version = "0.1.3-rc.2"
 readme = "README.md"
+license = { text = "Apache-2.0" }
+authors = [
+    { name = "m-xim", email = "i@m-xim.ru" },
+]
 requires-python = ">=3.10"
 dependencies = [
     "magic-filter>=1.0.12",
 ]
+keywords = [
+    "template",
+    "text generation",
+    "compose",
+    "structured text",
+    "templating",
+    "logic templates",
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Text Processing :: General",
+    "License :: OSI Approved :: Apache Software License",
+    "Topic :: Software Development :: Libraries",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+Homepage = "https://github.com/m-xim/textcompose"
+Repository = "https://github.com/m-xim/textcompose"
+Issues = "https://github.com/m-xim/textcompose/issues"
 
 [dependency-groups]
 dev = [

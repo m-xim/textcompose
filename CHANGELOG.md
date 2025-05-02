@@ -1,12 +1,33 @@
 # CHANGELOG
 
-
 ## v0.1.3 (2025-05-02)
 
 ### Testing
 
 - Add tests
   ([`fa30176`](https://github.com/m-xim/textcompose/commit/fa301760d5734d249c5c7c59a7f9f954de6bf0c4))
+
+
+## v0.1.3-rc.2 (2025-05-02)
+
+### Bug Fixes
+
+- **Container**: `*children`, `when` is name arg
+  ([`5d726e5`](https://github.com/m-xim/textcompose/commit/5d726e548691162f38737c4d31903725c63b05d1))
+
+### Continuous Integration
+
+- Cleaning
+  ([`17fb568`](https://github.com/m-xim/textcompose/commit/17fb5687113d3f0c3694e963ae153409bc7d4279))
+
+- Fix pip
+  ([`71c2d0f`](https://github.com/m-xim/textcompose/commit/71c2d0ffef0e8c85da1c9b89fb6c84568dd81624))
+
+- Fix pytest
+  ([`429e0ba`](https://github.com/m-xim/textcompose/commit/429e0ba95c17bc858ab47db9901a75df24ee4b04))
+
+- Fix uv sync
+  ([`6152b99`](https://github.com/m-xim/textcompose/commit/6152b99f0155d902096af632a216aed8be8d7d7d))
 
 
 ## v0.1.3-rc.1 (2025-05-01)
