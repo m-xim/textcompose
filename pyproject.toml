@@ -1,7 +1,7 @@
 [project]
 name = "textcompose"
 description = "A Python library for building dynamic, structured text templates using a declarative, compose-based approach"
-version = "0.2.0"
+version = "0.3.0"
 readme = "README.md"
 license = { text = "Apache-2.0" }
 authors = [

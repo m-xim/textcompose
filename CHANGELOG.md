@@ -1,6 +1,19 @@
 # CHANGELOG
 
 
+## v0.3.0 (2025-05-03)
+
+### Bug Fixes
+
+- **content**: Resolve circular import by moving resolve_value to BaseContent
+  ([`a320b19`](https://github.com/m-xim/textcompose/commit/a320b19cc4115cce406e900bee67f7e0e87147ce))
+
+### Features
+
+- Add resolve_value and extend support for dynamic types in group, and template
+  ([`e5bfaeb`](https://github.com/m-xim/textcompose/commit/e5bfaeb7ebb470483719eaef9354c8b08a7eac6a))
+
+
 ## v0.2.0 (2025-05-02)
 
 ### Chores
