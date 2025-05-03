@@ -2,7 +2,6 @@ from typing import Any, Dict
 
 from textcompose.container.container import BaseContainer
 from textcompose.content.content import BaseContent, Condition
-from textcompose.utils.resolve_value import resolve_value
 
 
 class Template(BaseContainer):
@@ -16,7 +15,7 @@ class Template(BaseContainer):
 
         parts = []
         for comp in self.components:
-            if (part := resolve_value(comp, context, **kwargs)) is not None:
+            if (part := self.resolve_value(comp, context, **kwargs)) is not None:
                 parts.append(part)
 
         return "\n".join(parts).strip()

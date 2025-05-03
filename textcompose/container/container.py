@@ -1,7 +1,7 @@
 from abc import abstractmethod
 from typing import Any
 
-from textcompose.content.content import BaseContent, Condition, Value
+from textcompose.content.content import BaseContent, Value, Condition
 
 
 class BaseContainer(BaseContent):
