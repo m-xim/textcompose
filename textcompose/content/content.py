@@ -1,8 +1,11 @@
 from magic_filter import MagicFilter
 from abc import ABC, abstractmethod
-from typing import Any, Callable
+from typing import Any, Callable, Union
 
-Condition = bool | Callable[[dict[str, Any]], bool] | "BaseContent"
+from textcompose.utils.resolve_value import resolve_value
+
+Value = Union[None, MagicFilter, str, "BaseContent"]
+Condition = Union[None, MagicFilter, Callable[[dict[str, Any]], bool], bool, "BaseContent"]
 
 
 class BaseContent(ABC):
@@ -12,14 +15,10 @@ class BaseContent(ABC):
     def _check_when(self, context: dict[str, Any], **kwargs) -> bool:
         if self.when is None:
             return True
-        if isinstance(self.when, MagicFilter):
-            return bool(self.when.resolve(context))
-        if isinstance(self.when, BaseContent):
-            text = self.when.render(context, **kwargs)
-            return bool(text.strip())
-        if callable(self.when):
-            return bool(self.when(context))
-        return bool(self.when)
+
+        resolved = resolve_value(value=self.when, context=context, **kwargs)
+        resolved = resolved.strip() if isinstance(resolved, str) else resolved
+        return bool(resolved)
 
     @abstractmethod
     def render(self, context: dict[str, Any], **kwargs) -> str | None: ...

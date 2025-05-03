@@ -1,11 +1,11 @@
 from abc import abstractmethod
 from typing import Any
 
-from textcompose.content.content import BaseContent, Condition
+from textcompose.content.content import BaseContent, Condition, Value
 
 
 class BaseContainer(BaseContent):
-    def __init__(self, *children: BaseContent, when: Condition | None = None) -> None:
+    def __init__(self, *children: Value, when: Condition | None = None) -> None:
         super().__init__(when=when)
         self.children = children
 
