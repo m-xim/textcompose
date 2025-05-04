@@ -1,6 +1,19 @@
 # CHANGELOG
 
 
+## v0.4.0 (2025-05-04)
+
+### Documentation
+
+- Update README to enhance section headings with emojis
+  ([`2b48887`](https://github.com/m-xim/textcompose/commit/2b48887aa1bb59cc5969cc53ba6ccdedf3bc693e))
+
+### Features
+
+- **content**: Update Value type to support callable for dynamic value resolution
+  ([`2c90531`](https://github.com/m-xim/textcompose/commit/2c9053145eaa2b53ca044406bdae998a909e582d))
+
+
 ## v0.3.0 (2025-05-03)
 
 ### Bug Fixes
