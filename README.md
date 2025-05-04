@@ -9,7 +9,7 @@
 
 ---
 
-## Installation
+## 🚀 Installation
 
 You can install the library in two ways:
 
@@ -26,7 +26,7 @@ pip install textcompose
 
 ---
 
-## Usage
+## 💻 Usage
 
 ### Components Overview
 
@@ -83,6 +83,6 @@ You have new notifications. Notification count: 3.
 
 ---
 
-## Contributing
+## 👨‍💻 Contributing
 
-For more detailed documentation, check the [`dev` branch](https://github.com/m-xim/textcompose/tree/dev).
+We welcome contributions to `TextCompose`. If you have suggestions or improvements, please open an issue or submit a pull request.
