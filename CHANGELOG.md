@@ -1,6 +1,14 @@
 # CHANGELOG
 
 
+## v0.6.1 (2025-05-08)
+
+### Bug Fixes
+
+- **content**: Remove debug print statement and ensure proper handling of empty parts in rendering
+  ([`0393f2a`](https://github.com/m-xim/textcompose/commit/0393f2aa19342f82ce7c88e465dbde3272c5a175))
+
+
 ## v0.6.0 (2025-05-08)
 
 ### Features
