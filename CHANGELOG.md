@@ -1,6 +1,14 @@
 # CHANGELOG
 
 
+## v0.5.0 (2025-05-08)
+
+### Features
+
+- **logical**: Add If class for conditional rendering logic
+  ([`459e0e1`](https://github.com/m-xim/textcompose/commit/459e0e104cc2a3cb7436765d6b3f70795584d931))
+
+
 ## v0.4.0 (2025-05-04)
 
 ### Documentation
