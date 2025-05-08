@@ -26,7 +26,6 @@ class BaseContent(ABC):
             return True
 
         resolved = self.resolve_value(value=self.when, context=context, **kwargs)
-        print(resolved)
         resolved = resolved.strip() if isinstance(resolved, str) else resolved
         return bool(resolved)
 
