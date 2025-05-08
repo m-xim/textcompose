@@ -1,6 +1,14 @@
 # CHANGELOG
 
 
+## v0.6.0 (2025-05-08)
+
+### Features
+
+- **template**: Add separator option to Template for customizable rendering
+  ([`a25b9b5`](https://github.com/m-xim/textcompose/commit/a25b9b55d22e9bdcc8ae5a2b2bebd950734baa0d))
+
+
 ## v0.5.0 (2025-05-08)
 
 ### Features
