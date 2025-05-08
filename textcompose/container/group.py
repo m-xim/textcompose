@@ -10,11 +10,11 @@ class Group(BaseContainer):
         self.sep = sep
 
     def render(self, context: dict[str, Any], **kwargs) -> str | None:
-        if not self._check_when(context):
+        if not self._check_when(context, **kwargs):
             return None
 
         parts = []
         for comp in self.children:
             if (part := self.resolve_value(comp, context, **kwargs)) is not None:
                 parts.append(part)
-        return self.sep.join(parts)
+        return self.sep.join(parts) if parts else None
