@@ -3,8 +3,8 @@ from typing import Any, Callable, Union
 
 from magic_filter import MagicFilter
 
-Value = Union[None, MagicFilter, str, Callable[[dict[str, Any]], str | None], "BaseContent"]
-Condition = Union[None, MagicFilter, Callable[[dict[str, Any]], bool], bool, "BaseContent"]
+Value = Union[MagicFilter, str, Callable[[dict[str, Any]], str | None], "BaseContent"]
+Condition = Union[MagicFilter, Callable[[dict[str, Any]], bool], bool, "BaseContent"]
 
 
 class BaseContent(ABC):

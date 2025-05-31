@@ -9,6 +9,7 @@ authors = [
 ]
 requires-python = ">=3.10"
 dependencies = [
+    "jinja2>=3.1.6",
     "magic-filter>=1.0.12",
 ]
 keywords = [
