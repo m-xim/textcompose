@@ -4,6 +4,7 @@
 [![License](https://img.shields.io/github/license/m-xim/textcompose.svg)](/LICENSE)
 [![Tests Status](https://github.com/m-xim/textcompose/actions/workflows/tests.yml/badge.svg)](https://github.com/m-xim/textcompose/actions)
 [![Release Status](https://github.com/m-xim/textcompose/actions/workflows/release.yml/badge.svg)](https://github.com/m-xim/textcompose/actions)
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/m-xim/textcompose)
 
 **TextCompose** is a Python library for creating dynamic, structured text templates. Inspired by [aiogram-dialog](https://github.com/Tishka17/aiogram_dialog), it provides a flexible and intuitive interface for composing text.
 
