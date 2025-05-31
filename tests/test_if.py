@@ -14,7 +14,7 @@ def test_renders_else_when_condition_false():
 
 
 def test_returns_none_when_when_condition_is_false():
-    content = If(if_=lambda ctx: True, then=_"Yes", else_="No", when=lambda ctx: False)
+    content = If(if_=lambda ctx: True, then_="Yes", else_="No", when=lambda ctx: False)
     result = content.render({})
     assert result is None
 
