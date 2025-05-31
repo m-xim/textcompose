@@ -70,9 +70,7 @@ All components support the `when` parameter for conditional rendering.
 
 ---
 
-## 📝 Examples
-
-### Example 1: Simple composition
+## 📝 Example
 
 ```python
 from magic_filter import F
