@@ -6,13 +6,13 @@ class If(BaseContent):
     def __init__(
         self,
         if_: Condition,
-        then: Optional[Value] = None,
+        then_: Optional[Value] = None,
         else_: Optional[Value] = None,
         when: Condition | None = None,
     ):
         super().__init__(when)
         self.if_ = if_
-        self.then = then
+        self.then_ = then_
         self.else_ = else_
 
     def render(self, context: Dict[str, Any], **kwargs) -> Optional[str]:
@@ -20,5 +20,5 @@ class If(BaseContent):
             return None
 
         if bool(self.resolve_value(value=self.if_, context=context, **kwargs)):
-            return self.resolve_value(self.then, context, **kwargs)
+            return self.resolve_value(self.then_, context, **kwargs)
         return self.resolve_value(self.else_, context, **kwargs)
