@@ -9,6 +9,16 @@
 
 ---
 
+## ✨ Features
+
+- Flexible text composition from components
+- Conditional rendering support (`when`)
+- Grouping and repeating blocks
+- Formatting via f-string and Jinja2
+- Easily extensible with new components
+
+---
+
 ## 🚀 Installation
 
 You can install the library in two ways:
@@ -26,59 +36,101 @@ pip install textcompose
 
 ---
 
+
 ## 💻 Usage
 
 ### Components Overview
 
-`TextCompose` provides the following core components:
+#### General
 
-1. **`Template`**: Combines and renders components as a structured text block.
-2. **`Group`**: Groups multiple components and joins their output with a separator (`sep`).
-3. **`Text`**: Displays static text.
-4. **`Format`**: Formats strings dynamically using a given context.
+- `Template` — combines and renders components as a structured text block.
 
-All components support the `when` parameter for conditional rendering. If `when` evaluates to `True`, the component is rendered; otherwise, it is skipped.
+#### Content Blocks
 
-### Example
+- `BaseContent` — abstract base class for all content components
 
-Below is an example of how to use `TextCompose` to create dynamic text templates with nested components and conditional rendering.
+
+- `Text` — outputs static text
+- `Format` — dynamic formatting via f-string
+- `Jinja` — rendering via Jinja2 templates
+
+#### Containers
+
+- `BaseContainer` — abstract base class for containers
+
+
+- `Group` — groups children with a separator
+- `List` — repeats a template for a collection
+
+#### Logic Components
+
+- `If` — conditional rendering (`if_`, `then_`, `else_`)
+
+All components support the `when` parameter for conditional rendering.
+
+---
+
+## 📝 Examples
+
+### Example 1: Simple composition
 
 ```python
-from textcompose import Template
-from textcompose.container import Group
-from textcompose.content import Format, Text
+from magic_filter import F
 
-# Create a template using nested components
+from textcompose import Template
+from textcompose.container import Group, List
+from textcompose.content import Format, Text, Jinja
+from textcompose.logic import If
+
 template = Template(
+    Format("Hello, {name}!"),
+    Format("Status: {status}"),  # or `lambda ctx: f"Status: {ctx['status']}"` with function
+    If(
+        F["notifications"] > 0,  # `if_` - condition to check if there are notifications
+        Format("You have {notifications} new notifications."),  # `then_` - content to render if condition is True
+        Format("You not have new notifications."),  # `else_` - content to render if condition is False
+    ),
     Group(
-        Format("Hello, {name}!"),
-        Format("Your status: {status}."),
-        Group(
-            Text("You have new notifications."),
-            Format("Notification count: {notifications}.", when=lambda ctx: ctx.get("notifications") > 0),
-            sep=" "  # Separator for the nested group
+        Jinja("\nTotal messages {{ messages|length }}:"),
+        List(
+            Format("Time - {item[time]}:"),
+            Format("-  {item[text]}"),
+            sep="\n",  # `sep` - separator between list items
+            inner_sep="\n",  # `inner_sep` - separator between parts of a single item
+            getter=lambda ctx: ctx["messages"],  # `getter` - function or F to extract the list of messages from context
         ),
-        sep="\n"  # Separator for the main group
-    )
+        sep="\n",  # `sep` - separator between children of Group
+        when=F["messages"].len() > 0,  # `when` - show this block only if there are messages
+    ),
+    Text("\nThank you for using our service!"),  # or "Recent messages:" without class
 )
 
-# Context for rendering
 context = {
-    "name": "John",
+    "name": "Alexey",
     "status": "Online",
-    "notifications": 3
+    "notifications": 2,
+    "messages": [
+        {"text": "Your package has been delivered.", "time": "09:15"},
+        {"text": "Reminder: meeting tomorrow at 10:00.", "time": "18:42"},
+    ],
 }
 
-# Render text
-result = template.render(context)
-print(result)
+print(template.render(context))
 ```
 
-### Output:
+**Output:**
 ```
-Hello, John!
-Your status: Online.
-You have new notifications. Notification count: 3.
+Hello, Alexey!
+Status: Online
+You have 2 new notifications.
+
+Total messages 2:
+Time - 09:15:
+-  Your package has been delivered.
+Time - 18:42:
+-  Reminder: meeting tomorrow at 10:00.
+
+Thank you for using our service!
 ```
 
 ---

@@ -1,17 +1,19 @@
 [project]
 name = "textcompose"
-description = "A Python library for building dynamic, structured text templates using a declarative, compose-based approach"
 version = "0.6.1"
+description = "A Python library for building dynamic, structured text templates using a declarative, compose-based approach"
 readme = "README.md"
 license = { text = "Apache-2.0" }
 authors = [
     { name = "m-xim", email = "i@m-xim.ru" },
 ]
 requires-python = ">=3.10"
+packages = [{ include = "textcompose" }]
 dependencies = [
     "jinja2>=3.1.6",
     "magic-filter>=1.0.12",
 ]
+
 keywords = [
     "template",
     "text generation",
@@ -39,9 +41,13 @@ Issues = "https://github.com/m-xim/textcompose/issues"
 
 [dependency-groups]
 dev = [
-  "ruff",
-  "pytest",
+    "ruff",
+    "pytest",
 ]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
 
 [tool.ruff]
 line-length = 120
