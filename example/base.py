@@ -2,7 +2,7 @@ from magic_filter import F
 
 from textcompose import Template
 from textcompose.container import Group, List
-from textcompose.content import Format, Text, Jinja
+from textcompose.elements import Format, Jinja, Text
 from textcompose.logic import If
 
 template = Template(

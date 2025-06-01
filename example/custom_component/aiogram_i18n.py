@@ -1,8 +1,10 @@
-from typing import Dict, Any, Optional
-from textcompose.content.content import BaseContent, Condition, Value
+from typing import Any, Optional, Mapping
+
+from textcompose.core import resolve_value, Condition, Value
+from textcompose.elements.base import Element
 
 
-class I18nTC(BaseContent):
+class I18nTC(Element):
     def __init__(
         self,
         text: str,
@@ -16,14 +18,14 @@ class I18nTC(BaseContent):
         self.locale = locale
         self.mapping = mapping
 
-    def _resolve_mapping(self, context: Dict[str, Any]) -> Dict[str, Any]:
+    def _resolve_mapping(self, context: Mapping[str, Any]) -> Mapping[str, Any]:
         resolved = {}
         for key, val in self.mapping.items():
-            result = self.resolve_value(val, context)
+            result = resolve_value(val, context)
             resolved[key] = result if result is not None else ""
         return resolved
 
-    def render(self, context: Dict[str, Any], **kwargs) -> Optional[str]:
+    def render(self, context, **kwargs) -> Optional[str]:
         if not self._check_when(context, **kwargs):
             return None
 
@@ -32,6 +34,6 @@ class I18nTC(BaseContent):
             raise ValueError("Missing 'i18n' in render kwargs")
 
         params = self._resolve_mapping(context)
-        locale = self.resolve_value(self.locale, context) if self.locale else None
+        locale = resolve_value(self.locale, context) if self.locale else None
 
         return i18n.get(self.text, locale, **params)

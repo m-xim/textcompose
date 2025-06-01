@@ -18,7 +18,7 @@
 - Formatting via f-string and Jinja2
 - Easily extensible with new components
 
----
+
 
 ## 🚀 Installation
 
@@ -35,8 +35,6 @@ uv add textcompose
 pip install textcompose
 ```
 
----
-
 
 ## 💻 Usage
 
@@ -44,41 +42,40 @@ pip install textcompose
 
 #### General
 
-- `Template` — combines and renders components as a structured text block.
+- `Template` — main class for combining and rendering components
 
-#### Content Blocks
 
-- `BaseContent` — abstract base class for all content components
-
+#### Elements
+`Element` — abstract base class for all element components
 
 - `Text` — outputs static text
 - `Format` — dynamic formatting via f-string
 - `Jinja` — rendering via Jinja2 templates
 
 #### Containers
+`Container` — abstract base class for all container components
 
-- `BaseContainer` — abstract base class for containers
-
-
-- `Group` — groups children with a separator
+- `Group` — groups child components with a separator
 - `List` — repeats a template for a collection
 
 #### Logic Components
+`Logic` — abstract base class for all container components
 
 - `If` — conditional rendering (`if_`, `then_`, `else_`)
 
-All components support the `when` parameter for conditional rendering.
-
 ---
+All components support the `when` parameter — it controls the display of the component and accepts a condition (expression, function or magic_filter).
 
 ## 📝 Example
+
+All usage examples can be found in the [`example`](./example) folder.
 
 ```python
 from magic_filter import F
 
 from textcompose import Template
 from textcompose.container import Group, List
-from textcompose.content import Format, Text, Jinja
+from textcompose.elements import Format, Jinja, Text
 from textcompose.logic import If
 
 template = Template(
@@ -136,4 +133,4 @@ Thank you for using our service!
 
 ## 👨‍💻 Contributing
 
-We welcome contributions to `TextCompose`. If you have suggestions or improvements, please open an issue or submit a pull request.
+Contributions are welcome! If you have suggestions or improvements, please open an issue or submit a pull request.

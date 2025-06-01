@@ -1,5 +1,5 @@
+from textcompose.elements.text import Text
 from textcompose.template import Template
-from textcompose.content.text import Text
 
 
 def test_template_render_multiple_components():

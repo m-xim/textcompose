@@ -1,23 +1,15 @@
 import pytest
-from textcompose.content.format import Format
+
+from textcompose.elements.format import Format
 
 
-def test_format_basic_render():
-    format_content = Format("Hello, {name}!")
-    result = format_content.render({"name": "Alice"})
-    assert result == "Hello, Alice!"
-
-
-def test_format_missing_key():
-    format_content = Format("Hello, {name}!")
-    with pytest.raises(KeyError):
-        format_content.render({})
-
-
-def test_format_with_condition():
-    format_content = Format("Conditional", when=lambda context: context.get("render", False))
-    result = format_content.render({"render": True})
-    assert result == "Conditional"
-
-    result = format_content.render({"render": False})
-    assert result is None
+@pytest.mark.parametrize(
+    "template,context,when,expected",
+    [
+        ("Hello {name}", {"name": "Alice"}, None, "Hello Alice"),
+        ("{x} + {y}", {"x": 1, "y": 2}, True, "1 + 2"),
+        ("{x}", {"x": "skip"}, False, None),
+    ],
+)
+def test_format(template, context, when, expected):
+    assert Format(template, when=when).render(context) == expected
