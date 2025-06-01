@@ -1,20 +1,20 @@
-from typing import Any, Optional
+from typing import Optional
 
-from textcompose.container.container import BaseContainer
-from textcompose.content.content import Value, Condition
+from textcompose.container.base import Container
+from textcompose.core import Value, Condition, resolve_value
 
 
-class Group(BaseContainer):
-    def __init__(self, *children: Value, sep: Optional[str] = "\n", when: Condition | None = None) -> None:
-        super().__init__(*children, when=when)
+class Group(Container):
+    def __init__(self, *items: Value, sep: Optional[str] = "\n", when: Condition | None = None) -> None:
+        super().__init__(*items, when=when)
         self.sep = sep
 
-    def render(self, context: dict[str, Any], **kwargs) -> str | None:
+    def render(self, context, **kwargs) -> str | None:
         if not self._check_when(context, **kwargs):
             return None
 
         parts = []
-        for comp in self.children:
-            if (part := self.resolve_value(comp, context, **kwargs)) is not None:
+        for comp in self.items:
+            if (part := resolve_value(comp, context, **kwargs)) is not None:
                 parts.append(part)
         return self.sep.join(parts) if parts else None

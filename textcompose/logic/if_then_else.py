@@ -1,8 +1,10 @@
-from textcompose.content.content import BaseContent, Condition, Value
-from typing import Any, Optional, Dict
+from typing import Optional
+
+from textcompose.core import Condition, Value, resolve_value
+from textcompose.logic.base import Logic
 
 
-class If(BaseContent):
+class If(Logic):
     def __init__(
         self,
         if_: Condition,
@@ -10,15 +12,15 @@ class If(BaseContent):
         else_: Optional[Value] = None,
         when: Condition | None = None,
     ):
-        super().__init__(when)
+        super().__init__(when=when)
         self.if_ = if_
         self.then_ = then_
         self.else_ = else_
 
-    def render(self, context: Dict[str, Any], **kwargs) -> Optional[str]:
+    def render(self, context, **kwargs) -> Optional[str]:
         if not self._check_when(context, **kwargs):
             return None
 
-        if bool(self.resolve_value(value=self.if_, context=context, **kwargs)):
-            return self.resolve_value(self.then_, context, **kwargs)
-        return self.resolve_value(self.else_, context, **kwargs)
+        if bool(resolve_value(value=self.if_, context=context, **kwargs)):
+            return resolve_value(self.then_, context, **kwargs)
+        return resolve_value(self.else_, context, **kwargs)

@@ -1,20 +1,16 @@
+import pytest
+
 from textcompose.container.group import Group
-from textcompose.content.text import Text
 
 
-def test_group_render_with_separator():
-    text1 = Text("One")
-    text2 = Text("Two")
-    group = Group(text1, text2, sep=", ")
-
-    result = group.render({})
-    assert result == "One, Two"
-
-
-def test_group_render_with_conditions():
-    text1 = Text("Visible", when=True)
-    text2 = Text("Hidden", when=False)
-    group = Group(text1, text2)
-
-    result = group.render({})
-    assert result == "Visible"
+@pytest.mark.parametrize(
+    "children,sep,when,context,expected",
+    [
+        (["a", "b", "c"], ",", None, {}, "a,b,c"),
+        (["x", None, "y"], "-", True, {}, "x-y"),
+        (["1", "2"], "|", False, {}, None),
+    ],
+)
+def test_group(children, sep, when, context, expected):
+    group = Group(*children, sep=sep, when=when)
+    assert group.render(context) == expected
