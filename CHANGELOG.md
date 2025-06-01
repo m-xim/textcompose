@@ -1,6 +1,45 @@
 # CHANGELOG
 
 
+## v0.7.0 (2025-06-01)
+
+### Bug Fixes
+
+- **tests**: Rename `then` to `then_`
+  ([`27e3831`](https://github.com/m-xim/textcompose/commit/27e38314ad499fde1f7b5f790fe06a41d924f255))
+
+- **tests**: Test_if.py
+  ([`e9427a1`](https://github.com/m-xim/textcompose/commit/e9427a1b7ff500a51ac6f9a195435d8d9d246f56))
+
+### Chores
+
+- Add base example and update README
+  ([`9d8f121`](https://github.com/m-xim/textcompose/commit/9d8f121723c96c2c3120022fa9618e701c852e53))
+
+- Update README.md
+  ([`d4854a4`](https://github.com/m-xim/textcompose/commit/d4854a4ee14e526ffb20b6b0e153b020b67f1152))
+
+- **i18n**: Add example custom_component
+  ([`9d0c517`](https://github.com/m-xim/textcompose/commit/9d0c51796954fe05c7d65945860284bd18344bac))
+
+### Features
+
+- **container**: Add List to module exports and rename 'then' parameter in `If` class
+  ([`1183c29`](https://github.com/m-xim/textcompose/commit/1183c29a2e80de7995f2f39725fc8fe4dca14304))
+
+- **i18n**: Enhance I18nTC class with locale support and improved mapping resolution
+  ([`94c2fbc`](https://github.com/m-xim/textcompose/commit/94c2fbc33f72ef1c83d76e893a59dfb3ddf1c0c2))
+
+- **jinja**: Add Jinja rendering support
+  ([`49601d0`](https://github.com/m-xim/textcompose/commit/49601d03ae1cedbd6b9f5aa92601d0b91255f144))
+
+- **list**: Add List class for rendering items
+  ([`06e7357`](https://github.com/m-xim/textcompose/commit/06e7357b93132d581dac13f77dda02bc91101423))
+
+- **project**: Update project metadata and enhance README with features and usage examples
+  ([`7f4fc4a`](https://github.com/m-xim/textcompose/commit/7f4fc4aa8902870edc6ec3190005d4c856a4bf22))
+
+
 ## v0.6.1 (2025-05-08)
 
 ### Bug Fixes
@@ -122,6 +161,12 @@
 
 ### Bug Fixes
 
+- Bump version for re-upload
+  ([`10e3415`](https://github.com/m-xim/textcompose/commit/10e34150ca94eec75af46fe3bbda121a4b97b802))
+
+- Lock
+  ([`1811f28`](https://github.com/m-xim/textcompose/commit/1811f28b954106735e1e28d513378a426fb11c15))
+
 - **Text**: Condition
   ([`1d9dca2`](https://github.com/m-xim/textcompose/commit/1d9dca26f2c2f6c41416c9009a29e3c002feef50))
 
@@ -140,22 +185,16 @@
 
 ### Bug Fixes
 
-- Bump version for re-upload
-  ([`10e3415`](https://github.com/m-xim/textcompose/commit/10e34150ca94eec75af46fe3bbda121a4b97b802))
-
-
-## v0.1.1 (2025-05-01)
-
-### Bug Fixes
-
-- Lock
-  ([`1811f28`](https://github.com/m-xim/textcompose/commit/1811f28b954106735e1e28d513378a426fb11c15))
-
 - Lock
   ([`6d4b44c`](https://github.com/m-xim/textcompose/commit/6d4b44c8719a45f52834391777d5b98af452a36f))
 
 - Lock
   ([`fbdcd6c`](https://github.com/m-xim/textcompose/commit/fbdcd6caf211c7a6a33ac6acc4a08a2e8bcdeb8f))
+
+
+## v0.1.1 (2025-05-01)
+
+### Bug Fixes
 
 - Release.yml
   ([`6a51a9d`](https://github.com/m-xim/textcompose/commit/6a51a9d68cf05e38576de6c29b3244a33fe21a9d))
