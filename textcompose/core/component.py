@@ -14,9 +14,11 @@ class Component(ABC):
         if self.when is None:
             return True
 
-        resolved = resolve_value(value=self.when, context=context, **kwargs)
-        resolved = resolved.strip() if isinstance(resolved, str) else resolved
-        return bool(resolved)
+        # If self.when is a string, treat it as a variable name in the context and return its boolean value.
+        if isinstance(self.when, str):
+            return bool(context.get(self.when))
+
+        return bool(resolve_value(value=self.when, context=context, **kwargs))
 
     @abstractmethod
     def render(self, context: Mapping[str, Any], **kwargs) -> str | None: ...
