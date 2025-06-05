@@ -1,4 +1,4 @@
-from textcompose.logic.if_then_else import If
+from textcompose.logics.if_then_else import If
 
 
 def test_renders_then_when_condition_true():

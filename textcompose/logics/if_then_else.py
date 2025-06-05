@@ -1,7 +1,7 @@
 from typing import Optional
 
 from textcompose.core import Condition, Value, resolve_value
-from textcompose.logic.base import Logic
+from textcompose.logics.base import Logic
 
 
 class If(Logic):

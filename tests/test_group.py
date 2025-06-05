@@ -1,6 +1,6 @@
 import pytest
 
-from textcompose.container.group import Group
+from textcompose.containers.group import Group
 
 
 @pytest.mark.parametrize(

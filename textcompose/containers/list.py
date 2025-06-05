@@ -2,7 +2,7 @@ from typing import Union, Callable, Any, Iterable, Optional, Mapping
 
 from magic_filter import MagicFilter
 
-from textcompose.container.base import Container
+from textcompose.containers.base import Container
 from textcompose.core import Value, Condition, resolve_value
 
 
