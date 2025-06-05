@@ -1,6 +1,6 @@
 from typing import Optional
 
-from textcompose.container.base import Container
+from textcompose.containers.base import Container
 from textcompose.core import Component, Condition, resolve_value
 
 
