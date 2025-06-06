@@ -2,6 +2,24 @@
 
 <!-- version list -->
 
+## v1.1.0 (2025-06-06)
+
+### Bug Fixes
+
+- Improve handling of string conditions in component logic (`when`)
+  ([`b3cb4fc`](https://github.com/m-xim/textcompose/commit/b3cb4fc4b94dbd203c57233b2658955752798b7a))
+
+### Features
+
+- Add ProgressBar component with customizable styles
+  ([`6d64998`](https://github.com/m-xim/textcompose/commit/6d64998173fb26c6e588fdfee2a43ecd5df8497c))
+
+### Refactoring
+
+- Rename container, logic, custom_component folders to plural form
+  ([`b68bcc5`](https://github.com/m-xim/textcompose/commit/b68bcc56c11d5fab3dc97f4ef5f38ecde1fd5210))
+
+
 ## v1.0.0 (2025-06-01)
 
 ### Bug Fixes
