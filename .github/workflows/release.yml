@@ -28,20 +28,37 @@ jobs:
           git_committer_name: "github-actions"
           git_committer_email: "actions@users.noreply.github.com"
 
+      - name: Setup uv & venv
+        uses: astral-sh/setup-uv@v5
+        if: steps.release.outputs.released == 'true'
+
+      - name: Update uv.lock
+        run: uv lock
+        if: steps.release.outputs.released == 'true'
+
+      - name: Commit uv.lock if changed
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+          if git diff --exit-code uv.lock > /dev/null; then
+            echo "uv.lock unchanged"
+          else
+            git pull --rebase
+            git add uv.lock
+            git commit -m "chore: update uv.lock for v${{ steps.release.outputs.version }} [skip ci]"            git push
+          fi
+        if: steps.release.outputs.released == 'true'
+
+      - name: Build package
+        run: uv build --no-sources
+        if: steps.release.outputs.released == 'true'
+
       - name: Publish | Upload to GitHub Release Assets
         uses: python-semantic-release/publish-action@v10.0.2
         if: steps.release.outputs.released == 'true'
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           tag: ${{ steps.release.outputs.tag }}
-
-      - name: Setup uv & venv
-        uses: astral-sh/setup-uv@v5
-        if: steps.release.outputs.released == 'true'
-
-      - name: Build package
-        run: uv build --no-sources
-        if: steps.release.outputs.released == 'true'
 
       - name: Publish to PyPI
         env:
