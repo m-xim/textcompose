@@ -8,7 +8,7 @@
 
 **TextCompose** is a Python library for creating dynamic, structured text templates with an intuitive, component-based approach. Inspired by [aiogram-dialog](https://github.com/Tishka17/aiogram_dialog).
 
----
+<br>
 
 ## ✨ Features
 
@@ -187,7 +187,7 @@ The `template` parameter in the style allows you to customize the output string.
 💡 Ideas? Issues? PRs are welcome!<br>
 Open an issue or pull request to help TextCompose get even better.
 
----
+<br>
 
 > **Ready to supercharge your text formatting?<br>**
 > **Try TextCompose today and make your bots, reports, and notifications shine! ✨**
