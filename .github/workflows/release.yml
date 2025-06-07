@@ -14,13 +14,13 @@ jobs:
       contents: write
 
     steps:
-      - name: Checkout repo
+      - name: 🛎️ Checkout repository
         uses: actions/checkout@v4
         with:
           ref: ${{ github.ref_name }}
           fetch-depth: 0
 
-      - name: Action | Semantic Version Release
+      - name: 🏷️ Semantic Version Release
         id: release
         uses: python-semantic-release/python-semantic-release@v10.0.2
         with:
@@ -28,41 +28,27 @@ jobs:
           git_committer_name: "github-actions"
           git_committer_email: "actions@users.noreply.github.com"
 
-      - name: Setup uv & venv
+      - name: 🐍 Setup uv & venv
+        if: steps.release.outputs.released == 'true'
         uses: astral-sh/setup-uv@v5
-        if: steps.release.outputs.released == 'true'
 
-      - name: Update uv.lock
+      - name: 📦 Update uv.lock
+        if: steps.release.outputs.released == 'true'
         run: uv lock
-        if: steps.release.outputs.released == 'true'
 
-      - name: Commit uv.lock if changed
-        run: |
-          git config --global user.name "GitHub Actions"
-          git config --global user.email "actions@github.com"
-          if git diff --exit-code uv.lock > /dev/null; then
-            echo "uv.lock unchanged"
-          else
-            git add uv.lock
-            git pull --rebase
-            git commit -m "chore: update uv.lock for v${{ steps.release.outputs.version }} [skip ci]"
-            git push
-          fi
+      - name: 🏗️ Build package (sdist & wheel)
         if: steps.release.outputs.released == 'true'
-
-      - name: Build package
         run: uv build --no-sources
-        if: steps.release.outputs.released == 'true'
 
-      - name: Publish | Upload to GitHub Release Assets
-        uses: python-semantic-release/publish-action@v10.0.2
+      - name: 🚀 Publish | Upload to GitHub Release Assets
         if: steps.release.outputs.released == 'true'
+        uses: python-semantic-release/publish-action@v10.0.2
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           tag: ${{ steps.release.outputs.tag }}
 
-      - name: Publish to PyPI
+      - name: 🐍 Publish to PyPI
+        if: steps.release.outputs.released == 'true'
         env:
           UV_PUBLISH_TOKEN: ${{ secrets.PYPI_TOKEN }}
         run: uv publish
-        if: steps.release.outputs.released == 'true'
