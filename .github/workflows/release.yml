@@ -43,9 +43,10 @@ jobs:
           if git diff --exit-code uv.lock > /dev/null; then
             echo "uv.lock unchanged"
           else
-            git pull --rebase
             git add uv.lock
-            git commit -m "chore: update uv.lock for v${{ steps.release.outputs.version }} [skip ci]"            git push
+            git pull --rebase
+            git commit -m "chore: update uv.lock for v${{ steps.release.outputs.version }} [skip ci]"
+            git push
           fi
         if: steps.release.outputs.released == 'true'
 
