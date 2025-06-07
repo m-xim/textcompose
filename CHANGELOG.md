@@ -2,6 +2,30 @@
 
 <!-- version list -->
 
+## v1.1.1 (2025-06-07)
+
+### Bug Fixes
+
+- Add ProgressBar to module exports
+  ([`7ada5d6`](https://github.com/m-xim/textcompose/commit/7ada5d6e7e7279549735a3c98dceee14d694087a))
+
+### Chores
+
+- **ci**: Commit updated `uv.lock` after release
+  ([`34c0d44`](https://github.com/m-xim/textcompose/commit/34c0d447395795e9fa1ff346e319ff3321dea4ae))
+
+- **example**: Add progress bar example using aiogram3
+  ([`0b8e411`](https://github.com/m-xim/textcompose/commit/0b8e411baf22c6f375396a944c9821c2fe084eab))
+
+- **example**: Refactor
+  ([`75d2c54`](https://github.com/m-xim/textcompose/commit/75d2c54a73718adcad9f85e0f8d7fe887fe13008))
+
+### Documentation
+
+- **readme**: Update README with new usage instructions
+  ([`bd65917`](https://github.com/m-xim/textcompose/commit/bd65917162db5bdd6790dfcd28e9cbbbe515bbed))
+
+
 ## v1.1.0 (2025-06-06)
 
 ### Bug Fixes
