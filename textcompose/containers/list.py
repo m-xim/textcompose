@@ -3,7 +3,7 @@ from typing import Union, Callable, Any, Iterable, Optional, Mapping
 from magic_filter import MagicFilter
 
 from textcompose.containers.base import Container
-from textcompose.core import Value, Condition, resolve_value
+from textcompose.core import Value, Condition
 
 
 class List(Container):
@@ -33,6 +33,9 @@ class List(Container):
         if not items_iterable:
             return None
 
-        rendered_items = [self._render_item(item_value, context, **kwargs) for item_value in items_iterable]
+        rendered_items = [
+            self._render_item({"item": item_value, "context": getattr(context, "context", context), "i": i}, **kwargs)
+            for i, item_value in enumerate(items_iterable)
+        ]
 
         return self.sep.join(filter(None, rendered_items)) or None
