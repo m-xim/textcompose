@@ -1,6 +1,7 @@
 from abc import ABC, abstractmethod
 from typing import Any, Mapping, Callable
 
+from box import Box
 from magic_filter import MagicFilter
 
 # Direct import to prevent circular import issues
@@ -13,6 +14,7 @@ class Component(ABC):
 
     @staticmethod
     def resolve(value, context: Mapping[str, Any], **kwargs) -> str | None:
+        context = Box(context)
         if isinstance(value, MagicFilter):
             return value.resolve(context)
         elif hasattr(value, "render") and callable(getattr(value, "render")):

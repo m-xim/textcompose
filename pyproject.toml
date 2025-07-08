@@ -12,6 +12,7 @@ packages = [{ include = "textcompose" }]
 dependencies = [
     "jinja2>=3.1.6",
     "magic-filter>=1.0.12",
+    "python-box>=7.3.2",
 ]
 
 keywords = [
