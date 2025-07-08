@@ -2,6 +2,32 @@
 
 <!-- version list -->
 
+## v1.2.0 (2025-07-08)
+
+### Bug Fixes
+
+- Removed context duplication in List and added variable "i" to store the item (item_value) index
+  ([`3ea6512`](https://github.com/m-xim/textcompose/commit/3ea65126c98fca0217b0acb1319ec9998c982ce6))
+
+### Chores
+
+- **ci**: Fix add uv.lock
+  ([`d395995`](https://github.com/m-xim/textcompose/commit/d395995af7efa3afbcfcd613a5839a4da79a154f))
+
+- **ci**: Remove update `uv.lock`
+  ([`e2f4a0d`](https://github.com/m-xim/textcompose/commit/e2f4a0d73c9981a04f6b46930172cd0cad1199a5))
+
+### Features
+
+- Use python-box for context with both key and attribute access
+  ([`260fe93`](https://github.com/m-xim/textcompose/commit/260fe93ae082bee3e94de5e56d4d1f771e1e5b1c))
+
+### Refactoring
+
+- Replace deprecated resolve_value with Component.resolve
+  ([`8b1eef4`](https://github.com/m-xim/textcompose/commit/8b1eef4b07bcda1c00f1d7f27a8637ae7f1c4043))
+
+
 ## v1.1.1 (2025-06-07)
 
 ### Bug Fixes
