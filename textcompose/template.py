@@ -1,7 +1,7 @@
 from typing import Optional
 
 from textcompose.containers.base import Container
-from textcompose.core import Component, Condition, resolve_value
+from textcompose.core import Component, Condition
 
 
 class Template(Container):
@@ -16,7 +16,7 @@ class Template(Container):
 
         parts = []
         for comp in self.items:
-            if (part := resolve_value(comp, context, **kwargs)) is not None:
+            if (part := self.resolve(comp, context, **kwargs)) is not None:
                 parts.append(part)
 
         return self.sep.join(parts).strip()

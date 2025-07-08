@@ -1,7 +1,7 @@
 from typing import Optional
 
 from textcompose.containers.base import Container
-from textcompose.core import Value, Condition, resolve_value
+from textcompose.core import Value, Condition
 
 
 class Group(Container):
@@ -15,6 +15,6 @@ class Group(Container):
 
         parts = []
         for comp in self.items:
-            if (part := resolve_value(comp, context, **kwargs)) is not None:
+            if (part := self.resolve(comp, context, **kwargs)) is not None:
                 parts.append(part)
         return self.sep.join(parts) if parts else None

@@ -1,6 +1,6 @@
 from typing import Optional
 
-from textcompose.core import Condition, Value, resolve_value
+from textcompose.core import Condition, Value
 from textcompose.logics.base import Logic
 
 
@@ -21,6 +21,6 @@ class If(Logic):
         if not self._check_when(context, **kwargs):
             return None
 
-        if bool(resolve_value(value=self.if_, context=context, **kwargs)):
-            return resolve_value(self.then_, context, **kwargs)
-        return resolve_value(self.else_, context, **kwargs)
+        if bool(self.resolve(value=self.if_, context=context, **kwargs)):
+            return self.resolve(self.then_, context, **kwargs)
+        return self.resolve(self.else_, context, **kwargs)

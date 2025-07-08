@@ -1,4 +1,4 @@
-from textcompose.core import Condition, Value, resolve_value
+from textcompose.core import Condition, Value
 from textcompose.elements.base import Element
 from textcompose.styles.progress_bar import PROGRESS_BAR_STYLES, ProgressBarStyle
 
@@ -27,24 +27,24 @@ class ProgressBar(Element):
             style_obj = PROGRESS_BAR_STYLES.get(self.style, None)
         else:
             style_obj = ProgressBarStyle(
-                left=resolve_value(self.style.left, context),
-                fill=resolve_value(self.style.fill, context),
-                empty=resolve_value(self.style.empty, context),
-                right=resolve_value(self.style.right, context),
+                left=self.resolve(self.style.left, context),
+                fill=self.resolve(self.style.fill, context),
+                empty=self.resolve(self.style.empty, context),
+                right=self.resolve(self.style.right, context),
             )
             if self.style.template is not None:
-                style_obj.template = resolve_value(self.style.template, context)
+                style_obj.template = self.resolve(self.style.template, context)
 
         if style_obj is None:
             raise ValueError(f"Unknown style: {self.style}. Available styles: {', '.join(PROGRESS_BAR_STYLES.keys())}")
 
-        length = int(resolve_value(self.width, context))
+        length = int(self.resolve(self.width, context))
         if length <= 0:
             raise ValueError("Progress bar length must be a positive integer.")
-        current = float(resolve_value(self.current, context))
+        current = float(self.resolve(self.current, context))
         if current < 0:
             raise ValueError("Current value must be non-negative.")
-        total = float(resolve_value(self.total, context))
+        total = float(self.resolve(self.total, context))
         if total <= 0:
             raise ValueError("Total value must be greater than zero.")
 

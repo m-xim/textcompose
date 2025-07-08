@@ -1,13 +1,13 @@
-from typing import Callable, Mapping, Any
-
-from magic_filter import MagicFilter
+import warnings
+from typing import Mapping, Any
+from textcompose.core import Component
 
 
 def resolve_value(value, context: Mapping[str, Any], **kwargs) -> str | None:
-    if isinstance(value, MagicFilter):
-        return value.resolve(context)
-    elif hasattr(value, "render") and callable(getattr(value, "render")):
-        return value.render(context, **kwargs)
-    elif isinstance(value, Callable):
-        return value(context)
-    return value
+    warnings.warn(
+        "resolve_value is deprecated and will be removed in future versions. Use Component.resolve instead.",
+        DeprecationWarning,
+        stacklevel=2,
+    )
+
+    return Component.resolve(value, context, **kwargs)

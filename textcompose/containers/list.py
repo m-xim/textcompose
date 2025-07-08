@@ -21,17 +21,15 @@ class List(Container):
         self.sep = sep
         self.inner_sep = inner_sep
 
-    def _render_item(self, item_value: Any, context: Mapping[str, Any], **kwargs) -> str | None:
-        rendered_parts = [
-            resolve_value(item_tpl, {"item": item_value, "context": context}, **kwargs) for item_tpl in self.items
-        ]
+    def _render_item(self, context: Mapping[str, Any], **kwargs) -> str | None:
+        rendered_parts = [self.resolve(item_tpl, context, **kwargs) for i, item_tpl in enumerate(self.items)]
         return self.inner_sep.join(filter(None, rendered_parts)) or None
 
     def render(self, context, **kwargs) -> str | None:
         if not self._check_when(context, **kwargs):
             return None
 
-        items_iterable = resolve_value(self.getter, context, **kwargs)
+        items_iterable = self.resolve(self.getter, context, **kwargs)
         if not items_iterable:
             return None
 
