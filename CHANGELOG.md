@@ -2,6 +2,14 @@
 
 <!-- version list -->
 
+## v1.2.1 (2025-09-18)
+
+### Bug Fixes
+
+- Correct type hint for Value
+  ([`1e750e4`](https://github.com/m-xim/textcompose/commit/1e750e41ed41a23467ecad5d161f3d0e485b97ea))
+
+
 ## v1.2.0 (2025-07-08)
 
 ### Bug Fixes
