@@ -1,11 +1,9 @@
-from typing import Optional
-
 from textcompose.containers.base import Container
 from textcompose.core import Value, Condition
 
 
 class Group(Container):
-    def __init__(self, *items: Value, sep: Optional[str] = "\n", when: Condition | None = None) -> None:
+    def __init__(self, *items: Value, sep: Value = "\n", when: Condition | None = None) -> None:
         super().__init__(*items, when=when)
         self.sep = sep
 
@@ -17,4 +15,6 @@ class Group(Container):
         for comp in self.items:
             if (part := self.resolve(comp, context, **kwargs)) is not None:
                 parts.append(part)
-        return self.sep.join(parts) if parts else None
+
+        sep = self.resolve(self.sep, context, **kwargs)
+        return sep.join(parts) if parts else None
