@@ -2,6 +2,14 @@
 
 <!-- version list -->
 
+## v1.3.0 (2025-11-12)
+
+### Features
+
+- **Group, List**: Allow dynamic separator values
+  ([`c9411de`](https://github.com/m-xim/textcompose/commit/c9411defaf2b1688c557bad2cc1c95757ff8c0eb))
+
+
 ## v1.2.1 (2025-09-18)
 
 ### Bug Fixes
