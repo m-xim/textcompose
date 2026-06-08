@@ -15,7 +15,7 @@ jobs:
 
     steps:
       - name: 🛎️ Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           ref: ${{ github.ref_name }}
           fetch-depth: 0
@@ -30,7 +30,7 @@ jobs:
 
       - name: 🐍 Setup uv & venv
         if: steps.release.outputs.released == 'true'
-        uses: astral-sh/setup-uv@v5
+        uses: astral-sh/setup-uv@v8.1.0
 
       - name: 📦 Update uv.lock
         if: steps.release.outputs.released == 'true'
@@ -42,7 +42,7 @@ jobs:
 
       - name: 🚀 Publish | Upload to GitHub Release Assets
         if: steps.release.outputs.released == 'true'
-        uses: python-semantic-release/publish-action@v10.0.2
+        uses: python-semantic-release/publish-action@v10.5.3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           tag: ${{ steps.release.outputs.tag }}

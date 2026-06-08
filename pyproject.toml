@@ -12,6 +12,7 @@ packages = [{ include = "textcompose" }]
 dependencies = [
     "jinja2>=3.1.6",
     "magic-filter>=1.0.12",
+    "pexpect>=4.9.0",
     "python-box>=7.3.2",
 ]
 
@@ -43,6 +44,7 @@ Issues = "https://github.com/m-xim/textcompose/issues"
 [dependency-groups]
 dev = [
     "ruff",
+    "ty",
     "pytest",
 ]
 

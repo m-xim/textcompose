@@ -22,10 +22,10 @@ jobs:
       fail-fast: false
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Install uv and set the python version
-        uses: astral-sh/setup-uv@v5
+        uses: astral-sh/setup-uv@v8.1.0
         with:
           python-version: ${{ matrix.python-version }}
 
@@ -36,5 +36,4 @@ jobs:
         run: uv run ruff check --output-format=github .
 
       - name: Run pytest
-        run: |
-          uv run pytest
+        run: uv run pytest

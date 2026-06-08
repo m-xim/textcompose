@@ -7,9 +7,9 @@ class ProgressBar(Element):
     def __init__(
         self,
         current: Value,
-        total: Value = 100,
+        total: Value | int = 100,
         width: Value | int = 20,
-        style: Value | ProgressBarStyle = "emoj_square",
+        style: Value | ProgressBarStyle = "emoji_square",
         when: Condition | None = None,
     ):
         super().__init__(when=when)
